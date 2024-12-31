@@ -2,11 +2,11 @@ import './App.css';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import data from './data.js';
+import site_data from './data.js';
 import { useState } from 'react';
 
 function App() {
-  let [sites] = useState(data);
+  let [sites] = useState(site_data);
 
   return (
     <div className="App">
@@ -25,9 +25,16 @@ function App() {
       <div className='main-bg'></div>
       <div className="container">
         <div className="row">
+          {/* 
           <Card sites={sites[0]} />
           <Card sites={sites[1]} />
           <Card sites={sites[2]} />
+          */}
+          
+          {/* Card 컴포넌트 반복 생성 */}
+          {sites.map((site, index) => (
+            <Card key={index} sites={site} />
+          ))}
         </div>
       </div>
     </div>
@@ -35,7 +42,6 @@ function App() {
 }
 
 function Card(props) {
-  // 이미지 파일 이름 생성
   const imageName = props.sites.title.toLowerCase() + '.jpg';
 
   return (
@@ -43,7 +49,7 @@ function Card(props) {
       <img
         src={process.env.PUBLIC_URL + '/' + imageName}
         className="card-img"
-        alt={props.sites.image_name}
+        alt={props.sites.title}
       />
       <h4>{props.sites.title}</h4>
       <p>{props.sites.content}</p>
@@ -52,3 +58,6 @@ function Card(props) {
 }
 
 export default App;
+
+
+

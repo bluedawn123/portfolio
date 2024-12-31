@@ -31,7 +31,7 @@
 
 .card-img {
   width: 100%; /* 너비를 100%로 설정 */
-  height: 200px; /* 고정된 높이 */
+  height: 230px; /* 고정된 높이 */
   object-fit: cover; /* 비율을 유지하며 잘라내기 */
   margin-top: 120px;
 }
