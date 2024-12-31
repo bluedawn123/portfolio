@@ -6,18 +6,18 @@ import data from './data.js';
 import { useState } from 'react';
 
 function App() {
-
-  let [shoes] = useState(data);
+  let [sites] = useState(data);
 
   return (
     <div className="App">
       <Navbar bg="dark" data-bs-theme="dark">
         <Container>
-          <Navbar.Brand href="#home">Navbar</Navbar.Brand>
-          <Nav className="me-auto">
+          <Navbar.Brand href="#home">Yoon's Portfolio</Navbar.Brand>
+          <Nav className="ms-auto">
             <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#features">Features</Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
+            <Nav.Link href="#features">Portfolio</Nav.Link>
+            <Nav.Link href="#pricing">About me</Nav.Link>
+            <Nav.Link href="#contactMe">Contact me</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
@@ -25,32 +25,30 @@ function App() {
       <div className='main-bg'></div>
       <div className="container">
         <div className="row">
-        {/* <Card shoes={shoes[0]} i={1} />
-        <Card shoes={shoes[1]} i={2} />
-        <Card shoes={shoes[2]} i={3} /> */}
-        {
-          shoes.map( (a, i) => {
-            return(
-              <Card shoes={shoes[i]} i={i} />
-            )
-          })
-        }
+          <Card sites={sites[0]} />
+          <Card sites={sites[1]} />
+          <Card sites={sites[2]} />
         </div>
       </div>
     </div>
   );
 }
 
-function Card(props){
-  return(
-    <div className="col-md-4">
-      <img src={'https://codingapple1.github.io/shop/shoes' + (props.i +1) + '.jpg'} width="80%" />
-      <h4>{ props.shoes.title }</h4>
-      <p>{ props.shoes.price }</p>
-      <p>{ props.shoes.price }</p>
+function Card(props) {
+  // 이미지 파일 이름 생성
+  const imageName = props.sites.title.toLowerCase() + '.jpg';
 
+  return (
+    <div className="col-md-4">
+      <img
+        src={process.env.PUBLIC_URL + '/' + imageName}
+        className="card-img"
+        alt={props.sites.image_name}
+      />
+      <h4>{props.sites.title}</h4>
+      <p>{props.sites.content}</p>
     </div>
-  )
+  );
 }
 
 export default App;

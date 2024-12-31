@@ -2,22 +2,25 @@
 let data = [
   {
     id : 0,
-    title : "White and Black",
-    content : "Born in France",
+    image_name : "uniqlo",
+    title : "uniqlo",
+    content : "유니클로 웹 사이트 리뉴얼",
     price : 120000
   },
 
   {
     id : 1,
-    title : "Red Knit",
-    content : "Born in Seoul",
+    image_name : "kia",
+    title : "kia",
+    content : "기아 리뉴얼",
     price : 110000
   },
 
   {
     id : 2,
-    title : "Grey Yordan",
-    content : "Born in the States",
+    image_name : "lms",
+    title : "lms",
+    content : "LMS 웹 사이트 창작",
     price : 130000
   }
 ] 
